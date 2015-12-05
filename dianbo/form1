@@ -1,0 +1,236 @@
+Option Explicit
+
+Public 输入 As String
+
+
+Private Sub Command1_Click()
+End
+End Sub
+
+''初始化过程
+Private Sub Form_Load()
+
+
+''01.全屏
+With Me
+.WindowState = 1
+.BorderStyle = Abs(.BorderStyle - 2)
+.Caption = .Caption
+.WindowState = IIf(.BorderStyle, 0, 2)
+End With
+
+''02.获取屏幕分辨率
+Dim 屏幕宽 As Integer, 屏幕高 As Integer
+屏幕宽 = Screen.Width
+屏幕高 = Screen.Height
+Form1.Label1.Caption = "屏幕高为:" & 屏幕高 / Screen.TwipsPerPixelX & vbCrLf & _
+                       "屏幕宽为:" & 屏幕宽 / Screen.TwipsPerPixelY
+
+''04.form2隐藏
+Form2.Hide
+
+''03.控件位置
+
+Dim 第一排高 As Integer, 第一排宽 As Integer
+Dim 第二排高 As Integer, 第二排宽 As Integer
+Dim 第三排高 As Integer, 第三排宽 As Integer
+
+With Form1.按钮1
+.Width = 屏幕宽 * 0.25
+.Height = 屏幕高 * 0.1
+.Left = 屏幕宽 * 0.25 * (1 - 1)
+.Top = 屏幕高 * (1 - 0.3)
+.FontSize = 64
+End With
+
+With Form1.按钮2
+.Width = 屏幕宽 * 0.25
+.Height = 屏幕高 * 0.1
+.Left = 屏幕宽 * 0.25 * (2 - 1)
+.Top = 屏幕高 * (1 - 0.3)
+.FontSize = 64
+End With
+
+With Form1.按钮3
+.Width = 屏幕宽 * 0.25
+.Height = 屏幕高 * 0.1
+.Left = 屏幕宽 * 0.25 * (3 - 1)
+.Top = 屏幕高 * (1 - 0.3)
+.FontSize = 64
+End With
+
+With Form1.按钮确认
+.Width = 屏幕宽 * 0.25
+.Height = 屏幕高 * 0.1
+.Left = 屏幕宽 * 0.25 * (4 - 1)
+.Top = 屏幕高 * (1 - 0.3)
+.FontSize = 64
+End With
+
+
+With Form1.按钮4
+.Width = 屏幕宽 * 0.25
+.Height = 屏幕高 * 0.1
+.Left = 屏幕宽 * 0.25 * (1 - 1)
+.Top = 屏幕高 * (1 - 0.2)
+.FontSize = 64
+End With
+
+With Form1.按钮5
+.Width = 屏幕宽 * 0.25
+.Height = 屏幕高 * 0.1
+.Left = 屏幕宽 * 0.25 * (2 - 1)
+.Top = 屏幕高 * (1 - 0.2)
+.FontSize = 64
+End With
+
+With Form1.按钮6
+.Width = 屏幕宽 * 0.25
+.Height = 屏幕高 * 0.1
+.Left = 屏幕宽 * 0.25 * (3 - 1)
+.Top = 屏幕高 * (1 - 0.2)
+.FontSize = 64
+End With
+
+With Form1.按钮0
+.Width = 屏幕宽 * 0.25
+.Height = 屏幕高 * 0.1
+.Left = 屏幕宽 * 0.25 * (4 - 1)
+.Top = 屏幕高 * (1 - 0.2)
+.FontSize = 64
+End With
+
+With Form1.按钮7
+.Width = 屏幕宽 * 0.25
+.Height = 屏幕高 * 0.1
+.Left = 屏幕宽 * 0.25 * (1 - 1)
+.Top = 屏幕高 * (1 - 0.1)
+.FontSize = 64
+End With
+
+With Form1.按钮8
+.Width = 屏幕宽 * 0.25
+.Height = 屏幕高 * 0.1
+.Left = 屏幕宽 * 0.25 * (2 - 1)
+.Top = 屏幕高 * (1 - 0.1)
+.FontSize = 64
+End With
+
+With Form1.按钮9
+.Width = 屏幕宽 * 0.25
+.Height = 屏幕高 * 0.1
+.Left = 屏幕宽 * 0.25 * (3 - 1)
+.Top = 屏幕高 * (1 - 0.1)
+.FontSize = 64
+End With
+
+With Form1.按钮退格
+.Width = 屏幕宽 * 0.25
+.Height = 屏幕高 * 0.1
+.Left = 屏幕宽 * 0.25 * (4 - 1)
+.Top = 屏幕高 * (1 - 0.1)
+.FontSize = 64
+End With
+
+With Form1.显示
+.Width = 屏幕宽 * 1 ''按钮宽度
+.Height = 屏幕高 * 0.2 ''按钮高度
+.Left = 屏幕宽 * 0.25 * (1 - 1) ''按钮X坐标
+.Top = 屏幕高 * (1 - 0.7) ''按钮Y坐标
+.FontSize = 64 ''
+End With
+
+With Form1.输入显示
+.Width = 屏幕宽 * 0.2 ''按钮宽度
+.Height = 屏幕高 * 0.1 ''按钮高度
+.Left = 屏幕宽 * (1 - 0.2) / 2 ''按钮X坐标
+.Top = 屏幕高 * (1 - 0.6) ''按钮Y坐标
+.FontSize = 64 ''
+End With
+
+''赋值变量
+Form1.显示.Caption = "请输入验证码" & vbCrLf
+Form1.输入显示.Text = ""
+End Sub
+
+
+Private Sub 按钮0_Click()
+输入 = 输入 + "0"
+Form1.输入显示.Text = 输入
+End Sub
+
+Private Sub 按钮1_Click()
+输入 = 输入 + "1"
+Form1.输入显示.Text = 输入
+End Sub
+
+Private Sub 按钮2_Click()
+输入 = 输入 + "2"
+Form1.输入显示.Text = 输入
+End Sub
+
+Private Sub 按钮3_Click()
+输入 = 输入 + "3"
+Form1.输入显示.Text = 输入
+End Sub
+
+Private Sub 按钮4_Click()
+输入 = 输入 + "4"
+Form1.输入显示.Text = 输入
+End Sub
+
+Private Sub 按钮5_Click()
+输入 = 输入 + "5"
+Form1.输入显示.Text = 输入
+End Sub
+
+Private Sub 按钮6_Click()
+输入 = 输入 + "6"
+Form1.输入显示.Text = 输入
+End Sub
+
+Private Sub 按钮7_Click()
+输入 = 输入 + "7"
+Form1.输入显示.Text = 输入
+End Sub
+
+Private Sub 按钮8_Click()
+输入 = 输入 + "8"
+Form1.输入显示.Text = 输入
+End Sub
+
+Private Sub 按钮9_Click()
+输入 = 输入 + "9"
+Form1.输入显示.Text = 输入
+End Sub
+
+
+Private Sub 按钮确认_Click()
+MsgBox "输入的ID为:" & 输入
+If Len(Form1.输入显示.Text) = 6 Then
+Form2.Show
+Unload Form1
+Else
+MsgBox "请输入6位验证码"
+Form1.输入显示.Text = ""
+Form1.输入 = ""
+End If
+
+End Sub
+
+Private Sub 按钮退格_Click()
+输入 = ""
+Form1.输入显示.Text = 输入
+End Sub
+
+Private Sub 输入显示_Change()
+If Form1.输入显示.Text = "1111111" Then
+MsgBox "即将退出"
+End
+End If
+If Len(Form1.输入显示.Text) > 6 Then
+MsgBox "请重新输入"
+Form1.输入显示.Text = ""
+输入 = ""
+End If
+End Sub
