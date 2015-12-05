@@ -1,0 +1,4 @@
+Option Explicit
+
+Public a() As String
+
